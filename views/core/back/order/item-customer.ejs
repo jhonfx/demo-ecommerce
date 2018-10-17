@@ -1,0 +1,46 @@
+<h5 style="color:forestgreen;">Customer Details </h5>
+<hr>
+
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('First_name') %> </label>
+            <input type="text" class="form-control" id="stock" name="stock"
+                   placeholder="<%= __('Please enter the inventory') %>"
+                   value="<% if (data) { %> <%= data.user.name %>  <% } %>">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('Last_name') %> </label>
+
+
+               <input type="text" class="form-control" id="stock" name="stock"
+                      placeholder="<%= __('Please enter the inventory') %>"
+                      value="<% if (data) { %> <%= data.user.name %>  <% } %>">
+
+
+    </div>
+</div>
+
+
+<br>
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('Email') %> </label>
+            <input type="text" class="form-control" id="stock" name="stock"
+                   placeholder="<%= __('Please enter the inventory') %>"
+                   value="<% if (data) { %> <%= data.user.email %>  <% } %>" disabled="disabled">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('Phone_number') %> </label>
+
+
+               <input type="text" class="form-control" id="stock" name="stock"
+                      placeholder="<%= __('Please enter the inventory') %>"
+                      value="<% if (data) { %> <%= data.user.email %>  <% } %>">
+
+
+    </div>
+</div>

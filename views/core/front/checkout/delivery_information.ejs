@@ -1,0 +1,89 @@
+<div>
+    <h4 style="color:forestgreen;text-align: center; ">
+        <%= __('Delivery Information') %>
+    </h4>
+
+    <div class="row" style="align-content: center;text-align: center">
+                    
+        <!--div class="col-sm-6">
+                                       <label > <%= __('Zip') %> </label>
+                                       <input type="text" class="form-control" id="postcode" name="postcode" placeholder="<%= __('Please enter your zip code') %>"
+                                              value="<% if (typeof user == 'object' && user) {     user.postcode    } %> " required>
+                    </div-->
+    </div>
+
+    <div class="row" style="align-content: center;text-align: center">
+
+        <div class="col-sm-6">
+            <Label> <%= __('Address 1') %> </label>
+                           <Input type="text" class="form-control" id="delivery_address1" name="delivery_address1" placeholder="<%= __('Please enter the address 1') %>"
+                                  value="<% if (typeof user == 'object' && user) {  } %>" >
+        </div>
+
+
+        <div class="col-sm-6">
+            <Label> <%= __('Address 2') %> </label>
+                           <Input type="text" class="form-control" id="delivery_address2" name="delivery_address2" placeholder="<%= __('Please enter the address 2') %>"
+                                  value="<% if (typeof user == 'object' && user) { } %>" >
+        </div>
+
+    </div>
+
+
+    <div class="row" style="align-content: center;text-align: center">
+
+        <div class="col-sm-6">
+            <Label> <%= __('City') %> </label>
+                           <Input type="text" class="form-control" id="delivery_city" name="delivery_city" placeholder="<%= __('Please enter the city') %>"
+                                  value="<% if (typeof user == 'object' && user) {  } %>" >
+        </div>
+
+
+        <div class="col-sm-6">
+            <Label> <%= __('Country') %> </label>
+                           <Input type="text" class="form-control" id="delivery_country" name="delivery_country" placeholder="<%= __('Please enter the country') %>"
+                                  value="<% if (typeof user == 'object' && user) { } %>" >
+        </div>
+
+    </div>
+
+
+    <div class="row" style="align-content: center;text-align: center">
+
+        <div class="col-sm-6">
+            <Label> <%= __('Province') %> </label>
+                           <Input type="text" class="form-control" id="delivery_province" name="delivery_province"  placeholder="<%= __('Please enter Province') %>"
+                                  value="<% if (typeof user == 'object' && user) { } %>" >
+        </div>
+
+        <div class="col-sm-6">
+            <Label> <%= __('zip') %> </label>
+                           <Input type="text" class="form-control" id="delivery_zip" name="delivery_zip" placeholder="<%= __('Please enter the zip') %>"
+                                  value="<% if (typeof user == 'object' && user) { } %>" >
+        </div>
+
+
+    </div>
+
+    <div class="row" style="align-content: center;text-align: center">
+                    
+        <div class="col-sm-6">
+              <Label for="comment"> <%= __('Delivery Notice') %> </label>
+               <Textarea class="form-control" name="delivery_note" id="delivery_note" cols="30" rows=1 placeholder="<%= __('add a delivery notice') %> "> </textarea>    
+        </div>
+
+        <div class="col-sm-6">
+
+
+            <%= __('Use also as Billing Address') %>
+
+            <div class="checkbox">
+
+
+                <input type="checkbox" name="remember" checked>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,105 @@
+<div class="">
+    <h3 class="submenu"><i class="fa fa-fw fa-truck"> </i> <%= __('Order History') %> </h3>
+    <hr/>
+
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th> <%= __('Customer') %> </th>          
+                    <th> <%= __('Purchased On') %> </th>
+                    <Th> <%= __('Price') %> </th>
+                    <Th> <%= __('Address') %> </th>
+                    <Th> <%= __('Shipping Provider') %> </th>
+                    <Th> <%= __('Shipping Status') %> </th>
+                    <Th> <%= __('Payment') %> </th>
+                    <Th> <%= __('Payment Status') %> </th>
+                    <th> <%= __('Details') %> </th>
+                    <th> <%= __('Update Status') %> </th>
+
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% orders.forEach(function (order) { %>
+                <tr data-id="<%= order.id %>">
+                    <!--td>{{ loop.index %></td-->
+
+                    <td><%= order.idOrder %></td>
+
+                    <td><%= order.name %></td>
+
+                    <td><%= order.createdAt %></td>
+
+                    <td><%= order.price %></td>
+
+                    <td><%= order.address %></td>
+
+                    <td><%= order.shippingProvider %></td>
+
+                    <td><%= order.shippingStatus %></td>
+
+                                
+                    <td>
+                        <span class="badge badge-default"> <%= order.payment %>
+                        </span>
+                    </td>
+                                
+                    <Td>
+                        <Span class="badge badge-primary" style="background-color: green"> <%= __('done') %> </span>
+                    </td>
+                    <td>
+                        <a href="/admin/order/<%= order.idOrder %>" class="btn btn-xs btn-primary" button-action="edit">DETAILS</a>
+                    </td>
+                    <td>
+                        <a href="#/admin/product/preview/<%= order.id %>" class="btn btn-xs btn-warning" button-action="edit">UPDATE</a>
+                    </td>
+
+                </tr>
+
+                <% }); %>
+                </tbody>
+            </table>
+
+            <div style="text-align: center;">
+                <ul class="pagination">
+                    <li><a href="#/admin/order"><</a></li>
+                    <li><a href="#/admin/order">></a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // POST DELETE
+        $('[button-action="delete"]').on('click', function () {
+            if (!confirm('Do you really want to delete this?')) {
+                return;
+            }
+            var product_id = $(this).data('id');
+
+            $.ajax({
+                type: 'DELETE',
+                url: '/order/' + product_id,
+                success: function (data, status) {
+                    alert('Deleted succesfully.');
+                    window.location = '/admin/order';
+                    return;
+                },
+                error: function (error) {
+                    console.log(error);
+                    return;
+                }
+            });
+        });
+    });
+</script>
+
+

@@ -1,0 +1,13 @@
+assets/images/product
+.tmp/public/uploads
+.tmp/public/fonts/
+/.tmp
+/data/
+node_modules/
+node_modules/.bin/
+pro/
+views/core/front/module/
+views/core/back/module/
+api/controllers/core/back/module/
+api/controllers/core/front/module/
+package-lock.json

@@ -1,0 +1,93 @@
+<h5 style="color:forestgreen;">Payment Status</h5>
+<hr>
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('paymen_type') %> </label>
+                   <input type="text" class="form-control" id="name" name="name"
+
+                          value="<% if (data.payment){ %> <%= data.payment %> <%}%>"  disabled="disabled">
+
+        <input type="hidden" name="idProduct" id="idProduct" value="">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('status') %> </label>
+
+
+           <select id="idCategory" name="idCategory" class="form-control">            
+
+        <% if (typeof categoryOption == 'object' && categoryOption) { %>
+
+        <% categoryOption.forEach(function(category){ %>
+
+        <option value="<%= data %>"><%= category.name %>
+        </option>
+
+        <% }) %>
+
+        <% } else { %>
+
+        <option value="Empty"> <%= __('Paid') %></option>
+
+        <% } %>
+
+    </select>
+
+
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('id_transaction') %> </label>
+            <input type="text" class="form-control" id="stock" name="stock"
+
+                   value="<% if (data.idOrder) { %> <%= data.idOrder %>  <% } %>">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('amount') %> </label>
+
+
+               <input type="text" class="form-control" id="totalAmount" name="totalAmount"
+
+                      value="<% if (data.totalAmount) { %> <%= data.totalAmount %>  <% } %>">
+
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('payment_details') %> </label>
+                   <input type="text" class="form-control" id="thumbnail" name="thumbnail"
+                          placeholder="<%= __('representative image URL input please') %>"
+                          value="<% if (data.idOrder) { %> <%= data.idOrder %>  <% } %>">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('source') %> </label>
+
+             <input type="text" class="form-control" id="photos" name="photos"
+
+                    value="Web">
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('Date') %> </label>
+                   <input type="text" class="form-control" id="thumbnail" name="thumbnail"
+
+                          value="<% if (data.createdAt) { %> <%= data.createdAt %>  <% } %>" disabled>
+
+    </div>
+    <div class="col-sm-6">
+
+    </div>
+</div>

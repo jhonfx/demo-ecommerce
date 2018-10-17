@@ -1,0 +1,150 @@
+
+<%- include ../../../core/front/templates.navbar.ejs %>
+<%- include ../../../core/front/commun-front/head.ejs %>
+
+<br>
+
+
+
+
+<header class="main-header">
+    <div class="container">
+        <h1 class="page-title">Cart</h1>
+
+        <ol class="breadcrumb pull-right">
+            <li><a href="#">E-commerce</a></li>
+            <li class="active">Cart</li>
+        </ol>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <% cart.forEach(function (product){ %>
+
+                <tr data-id="<%= product.id %>">
+                    <td><%= product.id %></td>
+                    <td><img src="/images/product/<%= product.id %>/1.png" width="100" height="" alt=""></td>
+                    <td><a href="#"><%= product.name %></a></td>
+                    <td><%= sails.config.project.currency.symbol %> <%= product.price | 'currency' %></td>
+
+                    <td>
+                        <select  type="text" class="form-control" name="quantity">
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4 </option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8 </option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+
+                        </select>
+
+                    </td>
+                    <td><%= sails.config.project.currency.symbol %><%= (product.price * product.quantity) | 'currency' %></td>
+
+
+                    <td>
+                        <button class="btn btn-xs btn-primary" button-action="apply">APPLY</button>
+                        <button class="btn btn-xs btn-danger" button-action="delete">DELETE</button>
+                    </td>
+                </tr>
+
+           <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="e-price"><%= sails.config.project.currency.symbol %> <span><% if ( summary) { %><%= summary %><%}else{ %><%= 0.00%><% }%></span></div>
+            <a href="/checkout" class="btn btn-ar btn-block btn-success"><i class="fa fa-shopping-cart"></i> Checkout</a>
+
+            <a href="/cart/clear" class="btn btn-warning btn-ar btn-block"> <%= __('Empty Cart') %> </a>
+
+            <h3 class="right-line">Related Products</h3>
+            <div class="ec-box">
+                <div class="ec-box-header"><a href="#">-</a></div>
+                <a href="#"><img src="/images/ymple/product-example.png" alt="" style="width: 443px;"></a>
+                <div class="ec-box-footer">
+                    <span class="label label-primary">$ 0.00</span>
+                    <a href="#" class="btn btn-ar btn-success btn-sm pull-right"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<!--%- include core/front/commun-front/library.ejs %-->
+
+
+<%- include ../../../core/front/commun-front/library.ejs %>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[button-action="apply"]').on('click', function () {
+            var product_id = $(this).parent().parent().data('id');
+
+            var quantity = $('select[name=quantity]').val();
+
+            $.ajax({
+                type: 'PUT',
+                url: '/cart/apply/' + product_id + '?quantity=' + quantity,
+                success: function (data, status) {
+                    window.location = '/cart';
+                    return;
+                },
+                error: function (error) {
+                    console.log(error);
+                    return;
+                }
+            });
+        });
+
+        // POST DELETE
+        $('[button-action="delete"]').on('click', function () {
+            if (!confirm('Do you really want to delete this?')) {
+                return;
+            }
+
+            var product_id = $(this).parent().parent().data('id');
+
+            $.ajax({
+                type: 'DELETE',
+                url: '/cart/' + product_id,
+                success: function (data, status) {
+                    alert('Deleted succesfully.');
+                    window.location = '/cart';
+                    return;
+                },
+                error: function (error) {
+                    console.log(error);
+                    return;
+                }
+            });
+        });
+    });
+</script>

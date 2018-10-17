@@ -1,0 +1,2 @@
+secret stripe test : sk_test_BQokikJOvBiI2HlWgH4olfQ2
+public stripe test : pk_test_6pRNASCoBOKtIshFeQd4XMUh

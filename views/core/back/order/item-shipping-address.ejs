@@ -1,0 +1,74 @@
+<h5 style="color:forestgreen;">Shipping Address </h5>
+<hr>
+
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('Address1') %> </label>
+                   <input type="text" class="form-control" id="name" name="name"
+                          placeholder="<%= __('Please enter your name') %>"
+                          value="">
+
+        <input type="hidden" name="idProduct" id="idProduct" value="">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('Address2') %> </label>
+            <input type="text" class="form-control" id="price" name="price"
+                   placeholder="<%= __('Please enter the price') %>"
+                   value="<% if (data ) { %> <%= data %>  <% } %>">
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('City') %> </label>
+            <input type="text" class="form-control" id="stock" name="stock"
+                   placeholder="<%= __('Please enter the inventory') %>"
+                   value="<% if (data) { %> <%= data %>  <% } %>">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('Country') %> </label>
+
+
+                <select id="idCategory" name="idCategory" class="form-control">            
+
+        <% if (typeof categoryOption == 'object' && categoryOption) { %>
+
+        <% categoryOption.forEach(function(category){ %>
+
+        <option value="<%= data %>"><%= category.name %>
+        </option>
+
+        <% }) %>
+
+        <% } else { %>
+
+        <option value="Empty"> <%= __('Empty') %></option>
+
+        <% } %>
+
+    </select>
+
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <label> <%= __('Province') %> </label>
+                   <input type="text" class="form-control" id="thumbnail" name="thumbnail"
+                          placeholder="<%= __('representative image URL input please') %>"
+                          value="<% if (data) { %> <%= data %>  <% } %>">
+
+    </div>
+    <div class="col-sm-6">
+        <label style="align-content: center;text-align: center"> <%= __('Zip_code') %> </label>
+
+             <input type="text" class="form-control" id="photos" name="photos"
+                    placeholder="<%= __('product images URL to enter your (comma as the separator)') %>"
+                    value="">
+    </div>
+</div>

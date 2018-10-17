@@ -1,0 +1,42 @@
+<div class="">
+    <h4 style="color:forestgreen"><a href="/admin"></a>Order Details</h4>
+
+    <br>
+
+
+    <form role="form" action="/admin/order/edit/validation/<%=data.idOrder%>" method="POST">
+
+
+
+
+
+        <%- include item-payment-status.ejs %>
+
+
+        <br>
+
+        <%- include item-product-list.ejs %>
+
+        <br>
+
+
+
+        <%- include item-customer.ejs %>
+
+        <br>
+
+
+
+
+        <%- include item-shipping-address.ejs %>
+<br>
+        <%- include item-invoice-address.ejs %>
+
+
+
+
+
+    </form>
+</div>
+<br>
+
