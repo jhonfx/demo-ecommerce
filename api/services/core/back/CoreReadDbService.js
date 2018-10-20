@@ -4,6 +4,7 @@ var database = sails.config.connections.mongodbServer.database;
 var url = "mongodb://" + host + ":" + port + '/' + database;
 var ObjectId = require('mongodb').ObjectID;
 var _ = require('underscore');
+var window = '';
 
 
 
@@ -565,9 +566,9 @@ module.exports = {
                     ).toArray(function (err, data) {
                         //db.close();
                         console.log(err);
-
+                        console.log('lista de productos');
                         console.log('getProductList - data', data);
-
+                        window.productList = data;
                         resolve(data);    //docs[0].name.toString()); // returns to the function that calls the callback
                     })
                 })

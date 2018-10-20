@@ -15,6 +15,7 @@ const commonService = require(pathToService + 'common/InstallService');
 var pathTemplateFrontCore = sails.config.globals.templatePathFrontCore;
 
 var theme = sails.config.globals.theme;
+var dataLayer = [];
 
 var _ = require('underscore');
 
@@ -134,7 +135,6 @@ module.exports = {
 
                     console.info('productController products', products)
 
-
                     var newIdProduct = CoreReadDbService.getCategoryList().then(function (categoryList) {
 
                         console.log('promise return value categoryList:', categoryList);
@@ -143,7 +143,7 @@ module.exports = {
                         result.query = req.query.name;
                         result.showSearchMenu = 1;
 
-
+                        
                         return res.view(theme + 'index.ejs', result);
 
                     });

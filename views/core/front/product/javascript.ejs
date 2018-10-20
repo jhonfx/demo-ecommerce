@@ -1,6 +1,5 @@
 <script type="text/javascript">
     $(document).ready(function () {
-
         var $add = $('button[data-role="add"]');
         var $buy = $('button[data-role="buy"]');
         $add.on('click', AddToCart);
@@ -8,7 +7,7 @@
 
 
         function BuyToCart() {
-
+            console.log("click add to cart.....")
             console.log('this', $(this));
 
             var product_id = $(this).data('id');

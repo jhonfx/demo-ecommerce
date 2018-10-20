@@ -75,7 +75,9 @@
 
 
     <% products.forEach(function(product, i){ %>
+        <script>
 
+        </script>
         <div class="col-xs-12 col-sm-6 col-md-4" style="display: inline-block;">
             <div class="ec-box">
                 <div class="ec-box-header"><%= product.name %></div>
@@ -83,7 +85,7 @@
                 <a href="/product/<%= product.idProduct %>">
                     <% if (product.isImageAvailable == 1 ){ %>
 
-                    <img style="height: 200px;width: 250px;" class="img-rounded-ymple" src="/images/product/<%= product.idProduct %>/1.png">
+                    <img style="height: 150px;width: 150px;" class="img-rounded-ymple" src="/images/product/<%= product.idProduct %>/1.png">
 
 
 
@@ -122,11 +124,11 @@
 
 
 
-                        <button data-id="<%= product.idProduct %>"   data-role="add" class="btn btn-ar btn-success btn-sm pull-right"><i class="fa fa-shopping-cart"></i> <%= __('Add') %></button>
+                        <button data-id="<%= product.idProduct %>"   data-role="add" data-id="<%= product.idProduct %>" data-product="<%= product.name %>" data-price="<%= product.price %>" data-category="<%= product.idCategory %>" class="btn btn-ar btn-success btn-sm pull-right"><i class="fa fa-shopping-cart"></i> <%= __('Add') %></button>
 
 
 
-                        <button data-id="<%= product.idProduct %>" data-role="buy"   class="btn btn-primary btn-sm"><%= __('Purchase') %></button>
+                        <button data-id="<%= product.idProduct %>" data-role="buy" data-id="<%= product.idProduct %>" data-product="<%= product.name %>" data-price="<%= product.price %>" data-category="<%= product.idCategory %>" class="btn btn-primary btn-sm"><%= __('Purchase') %></button>
                     </div>
                         </div>
                     <br>
