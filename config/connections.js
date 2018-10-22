@@ -61,9 +61,9 @@ module.exports.connections = {
     host: 'localhost',
     //     host: 'mongodb', for docker implementation
     port: 27017,
-    // user: 'username',
-    // password: 'password',
-    database: 'ymple'
+    user: 'jpurata',
+    password: 'admin123',
+    database: 'ecommerce-example'
   },
 
   /***************************************************************************
