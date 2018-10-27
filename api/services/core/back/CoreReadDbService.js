@@ -1,7 +1,7 @@
 var host = sails.config.connections.mongodbServer.host;
 var port = sails.config.connections.mongodbServer.port;
 var database = sails.config.connections.mongodbServer.database;
-var url = "mongodb://" + host + ":" + port + '/' + database;
+var url = "mongodb://" + "jpurata:admin123@ds125031.mlab.com:25031/ecommerce-example"
 var ObjectId = require('mongodb').ObjectID;
 var _ = require('underscore');
 var window = '';

@@ -58,13 +58,24 @@ module.exports.connections = {
   ***************************************************************************/
   mongodbServer: {
     adapter: 'sails-mongo',
-    host: 'http://http://ds125031.mlab.com',
+    host: 'ds125031.mlab.com',
     //     host: 'mongodb', for docker implementation
     port: 25031,
     user: 'jpurata',
     password: 'admin123',
     database: 'ecommerce-example'
   },
+
+  // mongodbServer: {
+  //   adapter: 'sails-mongo',
+  //   host: 'localhost',
+  //   //     host: 'mongodb', for docker implementation
+  //   port: 27017,
+  //   // user: 'jpurata',
+  //   // password: 'admin123',
+  //   database: 'ymple'
+  // },
+  //jpurata:admin123@ds125031.mlab.com:25031/ecommerce-example
 
   /***************************************************************************
   *                                                                          *
