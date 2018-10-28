@@ -9,7 +9,7 @@ const database = sails.config.connections.mongodbServer.database;
 const user = sails.config.connections.mongodbServer.user;
 const password = sails.config.connections.mongodbServer.password;
 // const url = "mongodb://" + host + ":" + port + '/' + database;
-const urlConnection = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
+const url = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
 const ObjectId = require('mongodb').ObjectID;
 const _ = require('underscore');
 
