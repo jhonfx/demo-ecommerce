@@ -5,9 +5,12 @@ var ObjectId = require('mongodb').ObjectID;
 console.log('sails.config.connections');
 var host = sails.config.connections.mongodbServer.host;
 var port = sails.config.connections.mongodbServer.port;
-var database = sails.config.connections.mongodbServer.database;
+var user = sails.config.connections.mongodbServer.user;
+var password = sails.config.connections.mongodbServer.password;
 
-var urlConnection = "mongodb://" + host + ":" + port + '/' + database;
+var database = sails.config.connections.mongodbServer.database;
+// var url = "mongodb://jpurata:admin123@ds055709.mlab.com:55709/ecomm-example";
+var urlConnection = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
 
 getValueFromArray = function (data, element, type) {
 

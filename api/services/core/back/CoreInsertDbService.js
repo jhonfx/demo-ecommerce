@@ -10,8 +10,11 @@ console.log('sails.config.connections');
 var host = sails.config.connections.mongodbServer.host;
 var port = sails.config.connections.mongodbServer.port;
 var database = sails.config.connections.mongodbServer.database;
+var user = sails.config.connections.mongodbServer.user;
+var password = sails.config.connections.mongodbServer.password;
 //var urlConnection = "mongodb://localhost:27017/ymple-commerce"; // get the connexion.js database name
-var urlConnection = "mongodb://" + host + ":" + port + '/' + database;
+// var urlConnection = "mongodb://" + host + ":" + port + '/' + database;
+var urlConnection = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
 
 getValueFromArray = function (data, element, type) {
 

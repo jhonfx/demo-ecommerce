@@ -6,7 +6,10 @@ const CoreReadDbService = require('../back/CoreReadDbService');
 const host = sails.config.connections.mongodbServer.host;
 const port = sails.config.connections.mongodbServer.port;
 const database = sails.config.connections.mongodbServer.database;
-const url = "mongodb://" + host + ":" + port + '/' + database;
+const user = sails.config.connections.mongodbServer.user;
+const password = sails.config.connections.mongodbServer.password;
+// const url = "mongodb://" + host + ":" + port + '/' + database;
+const urlConnection = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
 const ObjectId = require('mongodb').ObjectID;
 const _ = require('underscore');
 

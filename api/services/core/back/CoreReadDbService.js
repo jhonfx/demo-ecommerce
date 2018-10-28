@@ -1,7 +1,10 @@
 var host = sails.config.connections.mongodbServer.host;
 var port = sails.config.connections.mongodbServer.port;
 var database = sails.config.connections.mongodbServer.database;
-var url = "mongodb://" + "jpurata:admin123@ds125031.mlab.com:25031/ecommerce-example";
+var user = sails.config.connections.mongodbServer.user;
+var password = sails.config.connections.mongodbServer.password;
+// var url = "mongodb://jpurata:admin123@ds055709.mlab.com:55709/ecomm-example";
+var url = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
 var ObjectId = require('mongodb').ObjectID;
 var _ = require('underscore');
 var window = '';

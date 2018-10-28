@@ -11,7 +11,10 @@ console.log('sails.config.connections');
 var host = sails.config.connections.mongodbServer.host;
 var port = sails.config.connections.mongodbServer.port;
 var database = sails.config.connections.mongodbServer.database;
-var urlConnection = "mongodb://" + host + ":" + port + '/' + database;
+// var urlConnection = "mongodb://" + host + ":" + port + '/' + database;
+var user = sails.config.connections.mongodbServer.user;
+var password = sails.config.connections.mongodbServer.password;
+var urlConnection = "mongodb://" + user +":"+ password + "@" + host + ":" + port + '/' + database;
 
 
     module.exports = {
