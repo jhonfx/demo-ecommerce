@@ -73,11 +73,41 @@
 
         <%}else{%>
 
+    
+    <script>
+        $(document).ready( function() {
+            
+            dataLayer.unshift({ 'customerId': '', 'pageCategory': 'productListPage', 'userStatus': 'none'});
+            
+            var productList = [];
+            
+            for (var i = 0; i < window.SAILS_LOCALS.products.length; i++) {
+                
+                    
+                    productList.push({
+                        'name': window.SAILS_LOCALS.products[i].name.trim(),
+                        'id': window.SAILS_LOCALS.products[i].idProduct,
+                        'price': window.SAILS_LOCALS.products[i].price,
+                        'brand': window.SAILS_LOCALS.products[i].name.split(" ")[0],
+                        'category': window.SAILS_LOCALS.products[i].idCategory,
+                        'position': [i],
+                        'list': 'List of products'
+                    });
+                
+                
+           
+            }
+        
 
+            dataLayer.push({ 'ecommerce': { 
+            currencyCode: 'EU',
+            'impressions' : productList,
+            event: 'productList'
+            }}); 
+        });
+    </script>
+    
     <% products.forEach(function(product, i){ %>
-        <script>
-
-        </script>
         <div class="col-xs-12 col-sm-6 col-md-4" style="display: inline-block;">
             <div class="ec-box">
                 <div class="ec-box-header"><%= product.name %></div>
@@ -85,7 +115,7 @@
                 <a href="/product/<%= product.idProduct %>">
                     <% if (product.isImageAvailable == 1 ){ %>
 
-                    <img style="height: 150px;width: 150px;" class="img-rounded-ymple" src="/images/product/<%= product.idProduct %>/1.png">
+                    <img style="height: auto;width: auto;" class="img-rounded-ymple" src="/images/product/<%= product.idProduct %>/1.png">
 
 
 

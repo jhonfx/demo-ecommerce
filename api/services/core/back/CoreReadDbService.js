@@ -571,7 +571,7 @@ module.exports = {
                         console.log(err);
                         console.log('lista de productos');
                         console.log('getProductList - data', data);
-                        window.productList = data;
+                        data.categoryName = "TELCEL";
                         resolve(data);    //docs[0].name.toString()); // returns to the function that calls the callback
                     })
                 })

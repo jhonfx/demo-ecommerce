@@ -12,9 +12,10 @@ module.exports.project = {
     exchange_rate: 1000,
     locale: {
       'kr': '원',
-      'en': 'Won'
+      'en': 'Won',
+      'es': '$'
     },
-    symbol: '€'
+    symbol: '$'
   },
   paymentMethods: {
     iamport: {
