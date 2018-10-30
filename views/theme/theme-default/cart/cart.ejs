@@ -1,11 +1,44 @@
 <%- exposeLocalsToBrowser() %>
 <%- include ../../../core/front/templates.navbar.ejs %>
 <%- include ../../../core/front/commun-front/head.ejs %>
+<%- include ../../../core/front/commun-front/library.ejs %>
 
 <br>
 
 
+<script>
+    $(document).ready( function() {
+        console.log("cargando.......")
+        dataLayer.unshift({ 'customerId': window.SAILS_LOCALS.user == undefined ? '' : window.SAILS_LOCALS.user._id , 'pageCategory': 'cartPage', 'userStatus': window.SAILS_LOCALS.user === undefined ? 'guest' : 'logged' });
+        
+        
+        var productList = [];
+            
+        for (var i = 0; i < window.SAILS_LOCALS.cart.length; i++) {
+                   
+                productList.push({
+                    'name': window.SAILS_LOCALS.cart[i].name.trim(),
+                    'id': window.SAILS_LOCALS.cart[i].id,
+                    'price': window.SAILS_LOCALS.cart[i].price,
+                    'brand': window.SAILS_LOCALS.cart[i].name.split(" ")[0],
+                });
+        
+        }
 
+        dataLayer.push(
+            { 'ecommerce': {
+                'detail':  {
+                    'actionField': { page : 'detailCart', action: 'purchase'},
+                    'products': productList
+                },
+                currencyCode: '<%= sails.config.project.currency.symbol %>',
+                event: 'cart',
+                eventCategory: 'Ecommerce'
+            }
+                }
+            ); 
+        });
+</script>
 
 <header class="main-header">
     <div class="container">

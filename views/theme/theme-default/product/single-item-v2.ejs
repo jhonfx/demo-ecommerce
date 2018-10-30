@@ -1,4 +1,6 @@
+<%- exposeLocalsToBrowser() %>
 <%include ../../../core/front/templates.navbar.ejs%>
+<%- include ../../../core/front/commun-front/library.ejs %>
 
 
 <!DOCTYPE html>
@@ -6,6 +8,33 @@
 
 <%- include ../../../core/front/commun-front/head.ejs %>
 
+<script>
+        $(document).ready( function() {
+            console.log("cargando.......")
+            dataLayer.unshift({ 'customerId': '', 'pageCategory': 'productListPage', 'userStatus': 'none'});
+            
+            dataLayer.push(
+                { 'ecommerce': {
+                    'detail':  {
+                        'actionField': { page : 'productPage', action: 'detail'},
+                        'products': [{
+                            'name': window.SAILS_LOCALS.product.name.trim(),
+                            'id': window.SAILS_LOCALS.product.idProduct,
+                            'price': window.SAILS_LOCALS.product.price,
+                            'brand': window.SAILS_LOCALS.product.name.split(" ")[0],
+                            'category': window.SAILS_LOCALS.product.idCategory,
+                            'stock': window.SAILS_LOCALS.product.stock
+                        }] 
+                    },
+                    currencyCode: '<%= sails.config.project.currency.symbol %>',
+                    event: 'productDetail',
+                    eventCategory: 'Ecommerce',
+                    productName: window.SAILS_LOCALS.product.name.trim()
+                }
+                        }
+                    ); 
+                });
+    </script>
 
 <!-- Preloader -->
 <div id="preloader">

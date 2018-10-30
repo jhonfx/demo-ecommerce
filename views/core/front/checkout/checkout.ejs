@@ -1,6 +1,42 @@
+<%- exposeLocalsToBrowser() %>
 <% include ../templates.navbar.ejs %>
-
+<%- include ../../front/commun-front/library.ejs %>
 <br>
+
+<script>
+    $(document).ready( function() {
+        console.log("cargando.......")
+        dataLayer.unshift({ 'customerId': window.SAILS_LOCALS.user._id == '' ? window.SAILS_LOCALS.isLogin : window.SAILS_LOCALS.user._id , 'pageCategory': 'checkoutPage', 'userStatus': window.SAILS_LOCALS.user._id == '' ? 'guest' : 'logged' });
+        
+        
+        var productList = [];
+            
+        for (var i = 0; i < window.SAILS_LOCALS.cart.length; i++) {
+                    
+                productList.push({
+                    'name': window.SAILS_LOCALS.cart[i].name.trim(),
+                    'id': window.SAILS_LOCALS.cart[i].id,
+                    'price': window.SAILS_LOCALS.cart[i].price,
+                    'brand': window.SAILS_LOCALS.cart[i].name.split(" ")[0]
+                });
+        }
+
+        dataLayer.push(
+            { 'ecommerce': {
+                'detail':  {
+                    'actionField': { page : 'detailCheckout', action: 'purchase'},
+                    'products': productList
+                },
+                currencyCode: '<%= sails.config.project.currency.symbol %>',
+                event: 'checkout',
+                totalPurchase: window.SAILS_LOCALS.summary,
+                totalProductPurchase: window.SAILS_LOCALS.total,
+                eventCategory: 'Ecommerce'
+            }
+                }
+            ); 
+        });
+</script>
 
 <div class="container">
     <form role="form" id="order" action="/order" method="POST">
@@ -97,7 +133,7 @@
     </form>
 </div>
 
-<%- include ../../front/commun-front/library.ejs %>
+
 
 
 <script type="text/javascript">

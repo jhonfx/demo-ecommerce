@@ -90,8 +90,7 @@
                         'price': window.SAILS_LOCALS.products[i].price,
                         'brand': window.SAILS_LOCALS.products[i].name.split(" ")[0],
                         'category': window.SAILS_LOCALS.products[i].idCategory,
-                        'position': [i],
-                        'list': 'List of products'
+                        'position': [i]
                     });
                 
                 
@@ -100,9 +99,10 @@
         
 
             dataLayer.push({ 'ecommerce': { 
-            currencyCode: 'EU',
+            currencyCode: '<%= sails.config.project.currency.symbol %>',
             'impressions' : productList,
-            event: 'productList'
+            event: 'productList',
+            eventCategory: 'Ecommerce'
             }}); 
         });
     </script>
