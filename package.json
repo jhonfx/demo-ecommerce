@@ -58,7 +58,7 @@
     "sails-hook-i18n": "^0.1.1",
     "sails-hook-nested-services": "^0.1.0",
     "sails-hook-orm": "^1.0.9",
-    "sails-hook-sockets": "^0.13.11",
+    "sails-hook-sockets": "^2.0.0",
     "sails-mongo": "^0.12.*",
     "shortid": "^2.0.1",
     "skipper-gridfs": "^0.5.2",
